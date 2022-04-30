@@ -2,20 +2,18 @@ import {FlatList, Image, Pressable, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {styles} from './status-style';
 import Modal from 'react-native-modal';
-import { status } from './data';
 
 function useForceUpdate() {
   const [value, setValue] = useState(false); // integer state
   return () => setValue(!value); // update the state to force render
 }
 
-export const Status = () => {
+export const Status = ({status}: any) => {
   const forceUpdate = useForceUpdate();
   const [isModalVisible, setModalVisible] = useState(false);
   const [imageSrc, setImageSrc] = useState('');
 
   const onClick = (index: any) => {
-    console.log(index);
     setImageSrc(status[index].image);
     setModalVisible(true);
     status.map((_item: any, ind: any) => {
@@ -27,6 +25,7 @@ export const Status = () => {
   };
 
   const render = ({item, index}: any) => {
+    const testId = `modal-${index}`;
     if (item.addImage) {
       return (
         <Pressable
@@ -41,7 +40,7 @@ export const Status = () => {
       );
     }
     return (
-      <Pressable onPress={() => onClick(index)}>
+      <Pressable onPress={() => onClick(index)} testID={testId}>
         <View style={styles.card}>
           <View
             style={[

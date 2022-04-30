@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Comments in screen page> Should render header with comments like click 1`] = `[MockFunction]`;
+
+exports[`<Comments in screen page> Should render header with comments like click 2`] = `[MockFunction]`;
+
+exports[`<Comments in screen page> Should render header with home click 1`] = `[MockFunction]`;

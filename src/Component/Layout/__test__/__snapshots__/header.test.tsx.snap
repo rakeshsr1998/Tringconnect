@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header> Should render header with bell click 1`] = `[MockFunction]`;
+
+exports[`<Header> Should render header with click 1`] = `[MockFunction]`;
+
+exports[`<Header> Should render header with menu click 1`] = `[MockFunction]`;
+
+exports[`<Header> Should render header with notification click 1`] = `[MockFunction]`;

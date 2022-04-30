@@ -7,7 +7,7 @@ export const BottomNavigation = () => {
   return (
     <View style={style.container}>
       <View style={style.subContainer}>
-        <Pressable onPress={() => setIndex(0)}>
+        <Pressable onPress={() => setIndex(0)} testID="home">
           <Image
             source={
               index === 0
@@ -18,7 +18,7 @@ export const BottomNavigation = () => {
           />
           {index === 0 && <View style={style.bar} />}
         </Pressable>
-        <Pressable onPress={() => setIndex(1)}>
+        <Pressable onPress={() => setIndex(1)} testID="cal">
           <Image
             source={
               index === 1
@@ -29,7 +29,7 @@ export const BottomNavigation = () => {
           />
           {index === 1 && <View style={style.bar} />}
         </Pressable>
-        <Pressable onPress={() => setIndex(2)}>
+        <Pressable onPress={() => setIndex(2)} testID="post">
           <Image
             source={
               index === 2
@@ -40,7 +40,7 @@ export const BottomNavigation = () => {
           />
           {index === 2 && <View style={style.bar} />}
         </Pressable>
-        <Pressable onPress={() => setIndex(3)}>
+        <Pressable onPress={() => setIndex(3)} testID="folder">
           <Image
             source={
               index === 3
@@ -51,7 +51,7 @@ export const BottomNavigation = () => {
           />
           {index === 3 && <View style={style.bar} />}
         </Pressable>
-        <Pressable onPress={() => setIndex(4)}>
+        <Pressable onPress={() => setIndex(4)} testID="chat">
           <Image
             source={
               index === 4

@@ -33,6 +33,7 @@ export const Comments = ({item, index}: any) => {
         <Text style={style.time}>3 hours ago</Text>
         <View style={style.rightIconCon}>
           <Pressable
+            testID="like"
             onPress={() => {
               activity.map((_item: any, ind: any) => {
                 if (ind === index) {
@@ -51,7 +52,7 @@ export const Comments = ({item, index}: any) => {
             />
           </Pressable>
           <Text style={style.like}>{item.likes + (item.like ? +1 : 0)}</Text>
-          <Pressable onPress={() => setDiv(true)}>
+          <Pressable onPress={() => setDiv(true)} testID="showDiv">
             <Image
               source={require('../../assets/comment.png')}
               style={style.commentPng}

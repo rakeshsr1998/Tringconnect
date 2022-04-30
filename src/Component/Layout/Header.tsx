@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <View style={style.container}>
       <View style={style.subContainer}>
-        <Pressable onPress={() => setMenu(!menu)}>
+        <Pressable onPress={() => setMenu(!menu)} testID="header">
           <Image
             source={
               menu
@@ -26,6 +26,7 @@ export const Header = () => {
         </View>
         <View style={style.row}>
           <Pressable
+            testID="bell"
             onPress={() => {
               setBell(!bell);
               setShowDot(false);
@@ -40,7 +41,7 @@ export const Header = () => {
               style={style.menu}
             />
           </Pressable>
-          <Pressable onPress={() => setSearch(!search)}>
+          <Pressable onPress={() => setSearch(!search)} testID="notification">
             <Image
               source={
                 search

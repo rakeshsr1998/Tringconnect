@@ -27,25 +27,37 @@ export const RenderImageOrVideo = ({item}: any) => {
   return (
     <>
       {item.images.length == 1 && (
-        <Pressable onPress={() => toggleModal(0)}>
+        <Pressable onPress={() => toggleModal(0)} testID="image1">
           <Image source={{uri: item.images[0]}} style={styles.postImage} />
         </Pressable>
       )}
       {item.images.length > 1 && (
         <>
           <View style={styles.flexRow}>
-            <Pressable style={styles.flexOne} onPress={() => toggleModal(0)}>
+            <Pressable
+              style={styles.flexOne}
+              onPress={() => toggleModal(0)}
+              testID="image2">
               <Image source={{uri: item.images[0]}} style={styles.multiImage} />
             </Pressable>
-            <Pressable style={styles.flexTwo} onPress={() => toggleModal(1)}>
+            <Pressable
+              style={styles.flexTwo}
+              onPress={() => toggleModal(1)}
+              testID="image3">
               <Image source={{uri: item.images[1]}} style={styles.multiImage} />
             </Pressable>
           </View>
           <View style={styles.flexRow}>
-            <Pressable style={styles.flexThree} onPress={() => toggleModal(2)}>
+            <Pressable
+              style={styles.flexThree}
+              onPress={() => toggleModal(2)}
+              testID="image4">
               <Image source={{uri: item.images[2]}} style={styles.multiImage} />
             </Pressable>
-            <Pressable style={styles.flexFour} onPress={() => toggleModal(3)}>
+            <Pressable
+              style={styles.flexFour}
+              onPress={() => toggleModal(3)}
+              testID="image5">
               <Image source={{uri: item.images[3]}} style={styles.multiImage} />
             </Pressable>
           </View>
@@ -57,6 +69,7 @@ export const RenderImageOrVideo = ({item}: any) => {
         isVisible={isModalVisible}>
         <View>
           <Pressable
+            testID='close'
             onPress={() => setModalVisible(false)}
             style={styles.closeIcon}>
             <Image

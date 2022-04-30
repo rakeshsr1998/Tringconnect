@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Render image in screen page> Should render 4 image 1`] = `[MockFunction]`;
+
+exports[`<Render image in screen page> Should render 4 image 2`] = `[MockFunction]`;
+
+exports[`<Render image in screen page> Should render 4 image 3`] = `[MockFunction]`;
+
+exports[`<Render image in screen page> Should render 4 image 4`] = `[MockFunction]`;
+
+exports[`<Render image in screen page> Should render 4 image 5`] = `[MockFunction]`;
+
+exports[`<Render image in screen page> Should render header with comments like click 1`] = `[MockFunction]`;
+
+exports[`<Render image in screen page> Should render one image 1`] = `[MockFunction]`;

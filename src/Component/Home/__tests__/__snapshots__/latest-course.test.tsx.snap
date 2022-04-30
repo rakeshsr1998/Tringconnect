@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LatestCourses> Should render header with comments like click 1`] = `[MockFunction]`;

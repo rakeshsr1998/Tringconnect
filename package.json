@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.3.1",
+    "@testing-library/react-native": "^9.1.0",
     "@types/react-native-snap-carousel": "^3.8.5",
     "react": "17.0.2",
     "react-native": "0.68.1",
+    "react-native-gesture-handler": "^2.4.1",
     "react-native-modal": "^13.0.1",
     "react-native-snap-carousel": "^3.9.1"
   },
@@ -39,13 +41,22 @@
   },
   "jest": {
     "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/setup-jest.js"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js",
-      "jsx",
-      "json",
-      "node"
+      "jsx"
+    ],
+    "collectCoverageFrom": [
+      "src/**",
+      "!src/assets/**"
+    ],
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      ".*__snapshots__/.*"
     ]
   }
 }

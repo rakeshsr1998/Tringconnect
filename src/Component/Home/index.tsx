@@ -2,13 +2,14 @@ import React from 'react';
 import {Platform, ScrollView, StyleSheet, View} from 'react-native';
 import {Activity} from './Activity';
 import {Status} from './Status';
+import {status} from './data';
 
 export const Home = () => {
   return (
     <ScrollView>
       <View style={style.container}>
         <View style={style.sub}>
-          <Status />
+          <Status status={status} />
         </View>
         <Activity />
       </View>

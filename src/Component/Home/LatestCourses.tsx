@@ -42,6 +42,7 @@ export const LatestCourses = () => {
     return (
       <View style={styles.card}>
         <Pressable
+          testID={`like-${index}`}
           style={styles.closeIcon}
           onPress={() => {
             courses.map((_item: any, ind: any) => {
