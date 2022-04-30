@@ -1,14 +1,8 @@
 import {FlatList, Image, Pressable, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {styles} from './status-style';
-const status = [
-  {addImage: true},
-  {image: 'https://i.pravatar.cc/241', name: 'HR Team', isView: false},
-  {image: 'https://i.pravatar.cc/242', name: 'Creative Bees', isView: false},
-  {image: 'https://i.pravatar.cc/243', name: 'Texh Mads', isView: false},
-  {image: 'https://i.pravatar.cc/244', name: 'Cloud 9', isView: false},
-  {image: 'https://i.pravatar.cc/246', name: 'Cloud 91', isView: false},
-];
+import Modal from 'react-native-modal';
+import { status } from './data';
 
 function useForceUpdate() {
   const [value, setValue] = useState(false); // integer state
@@ -17,8 +11,13 @@ function useForceUpdate() {
 
 export const Status = () => {
   const forceUpdate = useForceUpdate();
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [imageSrc, setImageSrc] = useState('');
 
   const onClick = (index: any) => {
+    console.log(index);
+    setImageSrc(status[index].image);
+    setModalVisible(true);
     status.map((_item: any, ind: any) => {
       if (ind === index) {
         _item.isView = true;
@@ -30,7 +29,10 @@ export const Status = () => {
   const render = ({item, index}: any) => {
     if (item.addImage) {
       return (
-        <Pressable>
+        <Pressable
+          style={{
+            justifyContent: 'center',
+          }}>
           <Image
             style={styles.plusIcon}
             source={require('../../assets/plus.png')}
@@ -41,7 +43,11 @@ export const Status = () => {
     return (
       <Pressable onPress={() => onClick(index)}>
         <View style={styles.card}>
-          <View style={styles.cardContainer}>
+          <View
+            style={[
+              styles.cardContainer,
+              item.isView ? {borderColor: '#5BBC2E'} : {borderColor: '#979797'},
+            ]}>
             <Image source={{uri: item.image}} style={styles.image} />
           </View>
           <Text style={styles.name}>{item.name}</Text>
@@ -51,14 +57,36 @@ export const Status = () => {
     );
   };
   return (
-    <View style={styles.container}>
-      <FlatList
-        ItemSeparatorComponent={() => <View style={{width: 1}} />}
-        keyExtractor={({}, index) => index.toString()}
-        horizontal={true}
-        data={status}
-        renderItem={render}
-      />
-    </View>
+    <>
+      <View style={styles.container}>
+        <FlatList
+          ItemSeparatorComponent={() => <View style={{width: 1}} />}
+          keyExtractor={({}, index) => index.toString()}
+          horizontal={true}
+          data={status}
+          renderItem={render}
+        />
+      </View>
+      <Modal
+        onBackdropPress={() => setModalVisible(false)}
+        hasBackdrop={true}
+        isVisible={isModalVisible}>
+        <View>
+          <Pressable
+            onPress={() => setModalVisible(false)}
+            style={styles.closeIcon}>
+            <Image
+              source={require('../../assets/close.png')}
+              style={styles.more}
+            />
+          </Pressable>
+          <Image
+            resizeMode="contain"
+            source={{uri: imageSrc}}
+            style={styles.modalCover}
+          />
+        </View>
+      </Modal>
+    </>
   );
 };
