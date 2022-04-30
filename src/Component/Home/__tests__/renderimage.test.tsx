@@ -34,55 +34,30 @@ const data1 = {
 };
 
 describe('<Render image in screen page>', () => {
-  const mockFunction = jest.fn();
-
-  it('Should render image with data', async () => {
-    const component = <RenderImageOrVideo data={data} />;
-    render(component);
-  });
-
   it('Should render one image', async () => {
-    const nextButton = render(<RenderImageOrVideo data={data} />).getByTestId(
+    const image1 = render(<RenderImageOrVideo data={data} />).getByTestId(
       'image1',
     );
-    fireEvent(nextButton, 'onPress');
-    expect(mockFunction).toMatchSnapshot();
-  });
+    fireEvent(image1, 'onPress');
 
-  it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
+    const image2 = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image2',
     );
-    fireEvent(nextButton, 'onPress');
-    expect(mockFunction).toMatchSnapshot();
-  });
+    fireEvent(image2, 'onPress');
 
-  it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
+    const image3 = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image3',
     );
-    fireEvent(nextButton, 'onPress');
-    expect(mockFunction).toMatchSnapshot();
-  });
+    fireEvent(image3, 'onPress');
 
-  it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
+    const image4 = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image4',
     );
-    fireEvent(nextButton, 'onPress');
-    expect(mockFunction).toMatchSnapshot();
-  });
+    fireEvent(image4, 'onPress');
 
-  it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
+    const image5 = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image5',
     );
-    fireEvent(nextButton, 'onPress');
-    expect(mockFunction).toMatchSnapshot();
-    render(<RenderImageOrVideo data={data1} />).getByTestId(
-      'close',
-    );
-    fireEvent(nextButton, 'onPress');
-    expect(mockFunction).toMatchSnapshot();
+    fireEvent(image5, 'onPress');
   });
 });
