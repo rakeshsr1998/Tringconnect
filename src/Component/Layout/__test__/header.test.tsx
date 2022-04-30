@@ -1,4 +1,4 @@
-import {fireEvent, render, RenderAPI} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import React from 'react';
 import {Header} from '../Header';
 
@@ -12,7 +12,7 @@ describe('<Header>', () => {
   /**
    * @type {RenderAPI}
    */
-  let instance: RenderAPI;
+  let instance: any;
 
   it('Should render header with menu click', async () => {
     const nextButton = instance.getByTestId('header');

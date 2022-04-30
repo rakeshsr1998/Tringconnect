@@ -80,7 +80,7 @@ export const Activity = () => {
   return (
     <FlatList
       ItemSeparatorComponent={() => <View style={styles.separator} />}
-      keyExtractor={({}, index) => index.toString()}
+      keyExtractor={(index) => index.toString()}
       horizontal={false}
       data={activity}
       renderItem={render}

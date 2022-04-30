@@ -56,7 +56,10 @@
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
-      ".*__snapshots__/.*"
+      ".*__snapshots__/.*",
+      "coverage",
+      "android",
+      "ios"
     ]
   }
 }
