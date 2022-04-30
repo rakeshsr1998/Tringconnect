@@ -23,6 +23,12 @@ export const Comments = ({item, index}: any) => {
       setTimeout(() => {
         setText('');
         setDiv(false);
+        activity.map((_item: any, ind: any) => {
+          if (ind === index) {
+            _item.comments = _item.comments + 1;
+          }
+        });
+        forceUpdate();
       }, 500);
     }
   };
@@ -128,6 +134,7 @@ export const Comments = ({item, index}: any) => {
                 onChangeText={setText}
                 value={text}
                 placeholder="Add a comment..."
+                testID="test"
               />
               <Pressable style={styles.arrowContainer} onPress={onPush}>
                 <Image
