@@ -23,7 +23,7 @@ export const Comments = ({item, index}: any) => {
       setTimeout(() => {
         setText('');
         setDiv(false);
-      }, 1000);
+      }, 500);
     }
   };
 

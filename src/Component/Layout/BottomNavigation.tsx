@@ -9,35 +9,55 @@ export const BottomNavigation = () => {
       <View style={style.subContainer}>
         <Pressable onPress={() => setIndex(0)}>
           <Image
-            source={require('../../assets/home-filled.png')}
+            source={
+              index === 0
+                ? require('../../assets/home-filled.png')
+                : require('../../assets/inactive-home.png')
+            }
             style={style.menu}
           />
           {index === 0 && <View style={style.bar} />}
         </Pressable>
         <Pressable onPress={() => setIndex(1)}>
           <Image
-            source={require('../../assets/dull-calender.png')}
+            source={
+              index === 1
+                ? require('../../assets/active-cal.png')
+                : require('../../assets/dull-calender.png')
+            }
             style={style.menu}
           />
           {index === 1 && <View style={style.bar} />}
         </Pressable>
         <Pressable onPress={() => setIndex(2)}>
           <Image
-            source={require('../../assets/dull-post.png')}
+            source={
+              index === 2
+                ? require('../../assets/active-post.png')
+                : require('../../assets/dull-post.png')
+            }
             style={style.menu}
           />
           {index === 2 && <View style={style.bar} />}
         </Pressable>
         <Pressable onPress={() => setIndex(3)}>
           <Image
-            source={require('../../assets/dull-folder.png')}
+            source={
+              index === 3
+                ? require('../../assets/active-folder.png')
+                : require('../../assets/dull-folder.png')
+            }
             style={style.menu}
           />
           {index === 3 && <View style={style.bar} />}
         </Pressable>
         <Pressable onPress={() => setIndex(4)}>
           <Image
-            source={require('../../assets/dull-chat.png')}
+            source={
+              index === 4
+                ? require('../../assets/active-chat.png')
+                : require('../../assets/dull-chat.png')
+            }
             style={style.menu}
           />
           {index === 4 && <View style={style.bar} />}

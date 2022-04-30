@@ -102,6 +102,7 @@ export const styles = StyleSheet.create({
     borderColor: '#5BBC2E',
     borderWidth: 1,
     width: 119,
+    marginRight: 10
   },
   knowMoreText: {
     color: '#333333',
