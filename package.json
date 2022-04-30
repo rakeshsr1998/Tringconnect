@@ -52,7 +52,7 @@
     ],
     "collectCoverageFrom": [
       "src/**",
-      "!src/assets/**",
+      "!src/assets/**"
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
