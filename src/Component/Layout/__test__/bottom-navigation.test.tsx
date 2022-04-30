@@ -3,7 +3,6 @@ import React from 'react';
 import { BottomNavigation } from '../BottomNavigation';
 
 describe('<Header>', () => {
-  const mockFunction = jest.fn();
   beforeEach(() => {
     const component = <BottomNavigation />;
     instance = render(component);

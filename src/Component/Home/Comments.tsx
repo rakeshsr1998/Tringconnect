@@ -17,9 +17,9 @@ export const Comments = ({ data, i }: any) => {
 
   const onPush = () => {
     if (text) {
-      const data: any = comments;
-      data.push(text);
-      setComments(data);
+      const _data: any = comments;
+      _data.push(text);
+      setComments(_data);
       setTimeout(() => {
         setText('');
         setDiv(false);
