@@ -188,4 +188,24 @@ export const styles = StyleSheet.create({
   font: {
     fontFamily: 'Poppins-SemiBold',
   },
+  multiImage: {
+    height: 290 / 2,
+    width: '100%',
+  },
+  flexOne: {
+    flex: 0.6,
+    padding: 2,
+  },
+  flexTwo: {
+    flex: 0.4,
+    padding: 2,
+  },
+  flexThree: {
+    flex: 0.4,
+    padding: 2,
+  },
+  flexFour: {
+    flex: 0.6,
+    padding: 2,
+  },
 });

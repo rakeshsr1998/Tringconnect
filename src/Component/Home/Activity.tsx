@@ -3,6 +3,7 @@ import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './activity-style';
 import {Comments} from './Comments';
 import {LatestCourses} from './LatestCourses';
+import {RenderImageOrVideo} from './RenderImageVideo';
 
 const activity = [
   {
@@ -28,7 +29,10 @@ const activity = [
     likes: 210,
     comments: 50,
     images: [
-      'https://images.unsplash.com/photo-1564758596151-c17d1590f483?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBmb29kfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
+      'https://www.insegment.com/blog/wp-content/uploads/2016/04/The-Role-of-Marketing-1.jpg',
+      'https://blog.hubspot.com/hubfs/marketing-techniques-Jun-30-2020-04-25-34-14-AM.jpg',
+      'https://www.simplilearn.com/ice9/free_resources_article_thumb/history_and_evolution_of_digital_marketing.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGeZcvI5QjPJBtqa6kO8rRVkGDZng_NtrMA&usqp=CAU',
     ],
   },
   {
@@ -115,7 +119,7 @@ export const Activity = () => {
                 </View>
               </View>
             ) : (
-              <Image source={{uri: item.images[0]}} style={styles.postImage} />
+              <RenderImageOrVideo item={item} />
             )}
           </>
         )}

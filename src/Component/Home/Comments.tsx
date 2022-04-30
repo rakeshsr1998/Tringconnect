@@ -1,4 +1,4 @@
-import {Image, View, TextInput} from 'react-native';
+import {Image, View, TextInput, Pressable} from 'react-native';
 import React, {useState} from 'react';
 import {styles} from './comment-style';
 
@@ -19,12 +19,12 @@ export const Comments = () => {
           value={text}
           placeholder="Add a comment..."
         />
-        <View style={styles.arrowContainer}>
+        <Pressable style={styles.arrowContainer} onPress={() => setText('')}>
           <Image
             style={styles.icon}
             source={require('../../assets/text-arrow.png')}
           />
-        </View>
+        </Pressable>
       </View>
     </View>
   );

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     margin: 12,
     marginRight: 0,
     padding: 15,
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Regular',
     backgroundColor: 'rgba(109,114,120,0.05)',
   },
   searchSection: {
