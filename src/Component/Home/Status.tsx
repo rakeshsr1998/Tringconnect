@@ -60,7 +60,7 @@ export const Status = ({status}: any) => {
       <View style={styles.container}>
         <FlatList
           ItemSeparatorComponent={() => <View style={{width: 1}} />}
-          keyExtractor={({}, index) => index.toString()}
+          keyExtractor={(item, index) => index.toString()}
           horizontal={true}
           data={status}
           renderItem={render}

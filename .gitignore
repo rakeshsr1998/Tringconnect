@@ -103,3 +103,5 @@ reports/
 # yarn
 *.lock
 *.log
+
+coverage/

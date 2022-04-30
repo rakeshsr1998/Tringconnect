@@ -45,7 +45,7 @@ export const LatestCourses = () => {
           testID={`like-${index}`}
           style={styles.closeIcon}
           onPress={() => {
-            courses.map((_item: any, ind: any) => {
+            courses.forEach((_item: any, ind: any) => {
               if (ind === index) {
                 _item.bookMark = !_item.bookMark;
               }
@@ -74,7 +74,7 @@ export const LatestCourses = () => {
   return (
     <FlatList
       ItemSeparatorComponent={() => <View style={styles.flatList} />}
-      keyExtractor={({}, index) => index.toString()}
+      keyExtractor={(item, index) => index.toString()}
       horizontal={true}
       data={courses}
       renderItem={render}

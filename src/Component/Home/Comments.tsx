@@ -35,7 +35,7 @@ export const Comments = ({item, index}: any) => {
           <Pressable
             testID="like"
             onPress={() => {
-              activity.map((_item: any, ind: any) => {
+              activity.forEach((_item: any, ind: any) => {
                 if (ind === index) {
                   _item.like = !_item.like;
                 }
@@ -91,7 +91,7 @@ export const Comments = ({item, index}: any) => {
         </View>
         <FlatList
           ItemSeparatorComponent={() => <View style={{height: 6}} />}
-          keyExtractor={({}, index) => index.toString()}
+          keyExtractor={(item, index) => index.toString()}
           horizontal={false}
           data={comments}
           renderItem={({item, index}) => {
