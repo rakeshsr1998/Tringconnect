@@ -52,7 +52,9 @@
     ],
     "collectCoverageFrom": [
       "src/**",
-      "!src/assets/**"
+      "!src/assets/**",
+      "!android",
+      "!src/**/__tests__/**"
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
