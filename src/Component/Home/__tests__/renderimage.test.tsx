@@ -37,12 +37,12 @@ describe('<Render image in screen page>', () => {
   const mockFunction = jest.fn();
 
   it('Should render image with data', async () => {
-    const component = <RenderImageOrVideo item={data} />;
+    const component = <RenderImageOrVideo data={data} />;
     render(component);
   });
 
   it('Should render one image', async () => {
-    const nextButton = render(<RenderImageOrVideo item={data} />).getByTestId(
+    const nextButton = render(<RenderImageOrVideo data={data} />).getByTestId(
       'image1',
     );
     fireEvent(nextButton, 'onPress');
@@ -50,7 +50,7 @@ describe('<Render image in screen page>', () => {
   });
 
   it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo item={data1} />).getByTestId(
+    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image2',
     );
     fireEvent(nextButton, 'onPress');
@@ -58,7 +58,7 @@ describe('<Render image in screen page>', () => {
   });
 
   it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo item={data1} />).getByTestId(
+    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image3',
     );
     fireEvent(nextButton, 'onPress');
@@ -66,7 +66,7 @@ describe('<Render image in screen page>', () => {
   });
 
   it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo item={data1} />).getByTestId(
+    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image4',
     );
     fireEvent(nextButton, 'onPress');
@@ -74,12 +74,12 @@ describe('<Render image in screen page>', () => {
   });
 
   it('Should render 4 image', async () => {
-    const nextButton = render(<RenderImageOrVideo item={data1} />).getByTestId(
+    const nextButton = render(<RenderImageOrVideo data={data1} />).getByTestId(
       'image5',
     );
     fireEvent(nextButton, 'onPress');
     expect(mockFunction).toMatchSnapshot();
-    render(<RenderImageOrVideo item={data1} />).getByTestId(
+    render(<RenderImageOrVideo data={data1} />).getByTestId(
       'close',
     );
     fireEvent(nextButton, 'onPress');

@@ -6,7 +6,7 @@ import {status} from './data';
 
 export const Home = () => {
   return (
-    <ScrollView>
+    <ScrollView keyboardShouldPersistTaps="handled">
       <View style={style.container}>
         <View style={style.sub}>
           <Status status={status} />

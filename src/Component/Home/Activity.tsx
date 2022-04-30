@@ -1,13 +1,41 @@
 import React from 'react';
-import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
-import {styles} from './activity-style';
-import {Comments} from './Comments';
-import {activity} from './data';
-import {LatestCourses} from './LatestCourses';
-import {RenderImageOrVideo} from './RenderImageVideo';
+import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
+import { styles } from './activity-style';
+import { Comments } from './Comments';
+import { activity } from './data';
+import { LatestCourses } from './LatestCourses';
+import { RenderImageOrVideo } from './RenderImageVideo';
 
 export const Activity = () => {
-  const render = ({item, index}: any) => {
+
+  const renderAds = (item: any) => {
+    if (item.isAd) {
+      return (
+        <View style={styles.adContainer}>
+          <View style={styles.center}>
+            <Image source={{ uri: item.images[0] }} style={styles.banner} />
+          </View>
+          <View style={styles.adTextContainer}>
+            <View>
+              <Text style={{ ...styles.title, marginTop: 13 }}>
+                Introducing Amazon EMR
+              </Text>
+              <Text style={styles.title}>serverless</Text>
+              <Text style={styles.minorText}>
+                aws.amazon.com | 2 mins read
+              </Text>
+            </View>
+            <TouchableOpacity style={styles.knowMoreBtn}>
+              <Text style={styles.knowMoreText}>Know More</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )
+    }
+    return <RenderImageOrVideo data={item} />
+  }
+
+  const render = ({ item, index }: any) => {
     const logo = item.logo ? item.logo : `https://i.pravatar.cc/34${index}`;
     return (
       <>
@@ -15,7 +43,7 @@ export const Activity = () => {
           <View style={styles.row}>
             <View style={styles.flexRow}>
               {!item.latestCourse && (
-                <Image source={{uri: logo}} style={styles.profileImage} />
+                <Image source={{ uri: logo }} style={styles.profileImage} />
               )}
               <View style={styles.nameContainer}>
                 <Text style={styles.name}>{item.name}</Text>
@@ -48,32 +76,10 @@ export const Activity = () => {
           </View>
         ) : (
           <>
-            {item.isAd ? (
-              <View style={styles.adContainer}>
-                <View style={styles.center}>
-                  <Image source={{uri: item.images[0]}} style={styles.banner} />
-                </View>
-                <View style={styles.adTextContainer}>
-                  <View>
-                    <Text style={{...styles.title, marginTop: 13}}>
-                      Introducing Amazon EMR
-                    </Text>
-                    <Text style={styles.title}>serverless</Text>
-                    <Text style={styles.minorText}>
-                      aws.amazon.com | 2 mins read
-                    </Text>
-                  </View>
-                  <TouchableOpacity style={styles.knowMoreBtn}>
-                    <Text style={styles.knowMoreText}>Know More</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            ) : (
-              <RenderImageOrVideo item={item} />
-            )}
+            {renderAds(item)}
           </>
         )}
-        <Comments item={item} index={index} />
+        <Comments data={item} i={index} />
       </>
     );
   };

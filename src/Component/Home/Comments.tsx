@@ -1,15 +1,15 @@
-import {Image, View, TextInput, Pressable, Text, FlatList} from 'react-native';
-import React, {useState} from 'react';
-import {styles} from './comment-style';
-import {styles as style} from './activity-style';
-import {activity} from './data';
+import { Image, View, TextInput, Pressable, Text, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { styles } from './comment-style';
+import { styles as style } from './activity-style';
+import { activity } from './data';
 
 function useForceUpdate() {
   const [value, setValue] = useState(false); // integer state
   return () => setValue(!value); // update the state to force render
 }
 
-export const Comments = ({item, index}: any) => {
+export const Comments = ({ data, i }: any) => {
   const [text, setText] = useState('');
   const [showDiv, setDiv] = useState(false);
   const forceUpdate = useForceUpdate();
@@ -23,8 +23,8 @@ export const Comments = ({item, index}: any) => {
       setTimeout(() => {
         setText('');
         setDiv(false);
-        activity.map((_item: any, ind: any) => {
-          if (ind === index) {
+        activity.forEach((_item: any, ind: any) => {
+          if (ind === i) {
             _item.comments = _item.comments + 1;
           }
         });
@@ -42,7 +42,7 @@ export const Comments = ({item, index}: any) => {
             testID="like"
             onPress={() => {
               activity.forEach((_item: any, ind: any) => {
-                if (ind === index) {
+                if (ind === i) {
                   _item.like = !_item.like;
                 }
               });
@@ -50,21 +50,21 @@ export const Comments = ({item, index}: any) => {
             }}>
             <Image
               source={
-                item.like
+                data.like
                   ? require('../../assets/active-heart.png')
                   : require('../../assets/heart.png')
               }
               style={style.more}
             />
           </Pressable>
-          <Text style={style.like}>{item.likes + (item.like ? +1 : 0)}</Text>
+          <Text style={style.like}>{data.likes + (data.like ? +1 : 0)}</Text>
           <Pressable onPress={() => setDiv(true)} testID="showDiv">
             <Image
               source={require('../../assets/comment.png')}
               style={style.commentPng}
             />
           </Pressable>
-          <Text style={style.comment}>{item.comments}</Text>
+          <Text style={style.comment}>{data.comments}</Text>
         </View>
       </View>
       <View style={style.line} />
@@ -73,34 +73,34 @@ export const Comments = ({item, index}: any) => {
           <Image
             style={style.avatar}
             source={{
-              uri: `https://i.pravatar.cc/24${item.id}`,
+              uri: `https://i.pravatar.cc/24${data.id}`,
             }}
           />
           <Image
             style={style.secondAvatar}
             source={{
-              uri: `https://i.pravatar.cc/24${item.id + 1}`,
+              uri: `https://i.pravatar.cc/24${data.id + 1}`,
             }}
           />
           <Image
             style={style.thirdAvatar}
             source={{
-              uri: `https://i.pravatar.cc/24${item.id + 2}`,
+              uri: `https://i.pravatar.cc/24${data.id + 2}`,
             }}
           />
           <Text style={style.likedBy}>
             Liked by <Text style={style.font}>KnE</Text> and{' '}
             <Text style={style.font}>
-              {item.likes + (item.like ? 0 : -1)} others
+              {data.likes + (data.like ? 0 : -1)} others
             </Text>
           </Text>
         </View>
         <FlatList
-          ItemSeparatorComponent={() => <View style={{height: 6}} />}
-          keyExtractor={(index) => index.toString()}
+          ItemSeparatorComponent={() => <View style={{ height: 6 }} />}
+          keyExtractor={(id) => id.toString()}
           horizontal={false}
           data={comments}
-          renderItem={({item, index}) => {
+          renderItem={({ item, index }) => {
             return (
               <View
                 style={{

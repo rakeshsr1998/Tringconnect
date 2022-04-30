@@ -19,12 +19,12 @@ describe('<Comments in screen page>', () => {
   const mockFunction = jest.fn();
 
   it('Should render comments with data', async () => {
-    const component = <Comments item={data} index={0} />;
+    const component = <Comments data={data} i={0} />;
     render(component);
   });
 
   it('Should render header with comments like click', async () => {
-    const nextButton = render(<Comments item={data} index={0} />).getByTestId(
+    const nextButton = render(<Comments data={data} i={0} />).getByTestId(
       'like',
     );
     fireEvent(nextButton, 'onPress');
@@ -32,7 +32,7 @@ describe('<Comments in screen page>', () => {
   });
 
   it('Should render header with comments like click', async () => {
-    const nextButton = render(<Comments item={data} index={0} />).getByTestId(
+    const nextButton = render(<Comments data={data} i={0} />).getByTestId(
       'showDiv',
     );
     fireEvent(nextButton, 'onPress');

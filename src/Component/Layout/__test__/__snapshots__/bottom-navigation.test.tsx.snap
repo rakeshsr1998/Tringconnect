@@ -8,4 +8,12 @@ exports[`<Header> Should render header with folder click 1`] = `[MockFunction]`;
 
 exports[`<Header> Should render header with home click 1`] = `[MockFunction]`;
 
+exports[`<Header> Should render header with home click 2`] = `[MockFunction]`;
+
+exports[`<Header> Should render header with home click 3`] = `[MockFunction]`;
+
+exports[`<Header> Should render header with home click 4`] = `[MockFunction]`;
+
+exports[`<Header> Should render header with home click 5`] = `[MockFunction]`;
+
 exports[`<Header> Should render header with post click 1`] = `[MockFunction]`;

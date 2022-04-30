@@ -6,11 +6,11 @@ import Carousel from 'react-native-snap-carousel';
 
 const width = Dimensions.get('screen').width * 0.9;
 
-export const RenderImageOrVideo = ({ item }: any) => {
+export const RenderImageOrVideo = ({ data }: any) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [index, setIndex] = useState(0);
-  const toggleModal = index => {
-    setIndex(index);
+  const toggleModal = i => {
+    setIndex(i);
     setModalVisible(!isModalVisible);
   };
 
@@ -26,25 +26,25 @@ export const RenderImageOrVideo = ({ item }: any) => {
 
   return (
     <>
-      {item.images.length == 1 && (
+      {data.images.length == 1 && (
         <Pressable onPress={() => toggleModal(0)} testID="image1">
-          <Image source={{ uri: item.images[0] }} style={styles.postImage} />
+          <Image source={{ uri: data.images[0] }} style={styles.postImage} />
         </Pressable>
       )}
-      {item.images.length > 1 && (
+      {data.images.length > 1 && (
         <>
           <View style={styles.flexRow}>
             <Pressable
               style={styles.flexOne}
               onPress={() => toggleModal(0)}
               testID="image2">
-              <Image source={{ uri: item.images[0] }} style={styles.multiImage} />
+              <Image source={{ uri: data.images[0] }} style={styles.multiImage} />
             </Pressable>
             <Pressable
               style={styles.flexTwo}
               onPress={() => toggleModal(1)}
               testID="image3">
-              <Image source={{ uri: item.images[1] }} style={styles.multiImage} />
+              <Image source={{ uri: data.images[1] }} style={styles.multiImage} />
             </Pressable>
           </View>
           <View style={styles.flexRow}>
@@ -52,13 +52,13 @@ export const RenderImageOrVideo = ({ item }: any) => {
               style={styles.flexThree}
               onPress={() => toggleModal(2)}
               testID="image4">
-              <Image source={{ uri: item.images[2] }} style={styles.multiImage} />
+              <Image source={{ uri: data.images[2] }} style={styles.multiImage} />
             </Pressable>
             <Pressable
               style={styles.flexFour}
               onPress={() => toggleModal(3)}
               testID="image5">
-              <Image source={{ uri: item.images[3] }} style={styles.multiImage} />
+              <Image source={{ uri: data.images[3] }} style={styles.multiImage} />
             </Pressable>
           </View>
         </>
@@ -80,7 +80,7 @@ export const RenderImageOrVideo = ({ item }: any) => {
           <Carousel
             firstItem={index}
             pagingEnabled={true}
-            data={item.images}
+            data={data.images}
             renderItem={render}
             sliderWidth={width}
             itemWidth={width}
