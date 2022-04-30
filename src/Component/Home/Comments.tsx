@@ -91,7 +91,7 @@ export const Comments = ({item, index}: any) => {
         </View>
         <FlatList
           ItemSeparatorComponent={() => <View style={{height: 6}} />}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(index) => index.toString()}
           horizontal={false}
           data={comments}
           renderItem={({item, index}) => {

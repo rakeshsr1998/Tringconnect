@@ -1,4 +1,4 @@
-import {fireEvent, render, RenderAPI} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import React from 'react';
 import {BottomNavigation} from '../BottomNavigation';
 
@@ -12,7 +12,7 @@ describe('<Header>', () => {
   /**
    * @type {RenderAPI}
    */
-  let instance: RenderAPI;
+  let instance: any;
 
   it('Should render header with home click', async () => {
     const nextButton = instance.getByTestId('home');

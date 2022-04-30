@@ -74,7 +74,7 @@ export const LatestCourses = () => {
   return (
     <FlatList
       ItemSeparatorComponent={() => <View style={styles.flatList} />}
-      keyExtractor={(item, index) => index.toString()}
+      keyExtractor={(index) => index.toString()}
       horizontal={true}
       data={courses}
       renderItem={render}

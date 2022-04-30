@@ -1,4 +1,4 @@
-import {fireEvent, render, RenderAPI} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import React from 'react';
 import {RenderImageOrVideo} from '../RenderImageVideo';
 
@@ -36,14 +36,9 @@ const data1 = {
 describe('<Render image in screen page>', () => {
   const mockFunction = jest.fn();
 
-  /**
-   * @type {RenderAPI}
-   */
-  let instance;
-
   it('Should render image with data', async () => {
     const component = <RenderImageOrVideo item={data} />;
-    instance = render(component);
+    render(component);
   });
 
   it('Should render one image', async () => {
@@ -84,7 +79,7 @@ describe('<Render image in screen page>', () => {
     );
     fireEvent(nextButton, 'onPress');
     expect(mockFunction).toMatchSnapshot();
-    const testId = render(<RenderImageOrVideo item={data1} />).getByTestId(
+    render(<RenderImageOrVideo item={data1} />).getByTestId(
       'close',
     );
     fireEvent(nextButton, 'onPress');

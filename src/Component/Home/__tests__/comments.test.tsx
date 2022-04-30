@@ -1,4 +1,4 @@
-import {fireEvent, render, RenderAPI} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import React from 'react';
 import {Comments} from '../Comments';
 
@@ -18,14 +18,9 @@ const data = {
 describe('<Comments in screen page>', () => {
   const mockFunction = jest.fn();
 
-  /**
-   * @type {RenderAPI}
-   */
-  let instance;
-
   it('Should render comments with data', async () => {
     const component = <Comments item={data} index={0} />;
-    instance = render(component);
+    render(component);
   });
 
   it('Should render header with comments like click', async () => {

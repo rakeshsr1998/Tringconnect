@@ -44,7 +44,6 @@
     "setupFiles": [
       "<rootDir>/setup-jest.js"
     ],
-    "testRegex": "/__tests__/.+\\.test\\.(tsx|js|ts)?$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -53,7 +52,8 @@
     ],
     "collectCoverageFrom": [
       "src/**",
-      "!src/assets/**"
+      "!src/assets/**",
+      "!src/android"
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
