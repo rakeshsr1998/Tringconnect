@@ -20,4 +20,10 @@ export const style = StyleSheet.create({
     width: 24,
     height: 24,
   },
+  bar: {
+    borderBottomColor: '#ffffff',
+    borderBottomWidth: 4,
+    marginTop: 5,
+    borderRadius: 5,
+  },
 });

@@ -1,9 +1,21 @@
-import React from 'react';
-import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
+import React, {useState} from 'react';
+import {
+  FlatList,
+  Image,
+  Pressable,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {styles} from './activity-style';
 import {Comments} from './Comments';
 import {LatestCourses} from './LatestCourses';
 import {RenderImageOrVideo} from './RenderImageVideo';
+
+function useForceUpdate() {
+  const [value, setValue] = useState(false); // integer state
+  return () => setValue(!value); // update the state to force render
+}
 
 const activity = [
   {
@@ -57,6 +69,8 @@ const activity = [
   },
 ];
 export const Activity = () => {
+  const forceUpdate = useForceUpdate();
+
   const render = ({item, index}: any) => {
     const logo = item.logo ? item.logo : `https://i.pravatar.cc/34${index}`;
     return (
@@ -127,10 +141,24 @@ export const Activity = () => {
         <View style={styles.secondCon}>
           <Text style={styles.time}>3 hours ago</Text>
           <View style={styles.rightIconCon}>
-            <Image
-              source={require('../../assets/heart.png')}
-              style={styles.more}
-            />
+            <Pressable
+              onPress={() => {
+                activity.map((_item: any, ind: any) => {
+                  if (ind === index) {
+                    _item.like = !_item.like;
+                  }
+                });
+                forceUpdate();
+              }}>
+              <Image
+                source={
+                  item.like
+                    ? require('../../assets/active-heart.png')
+                    : require('../../assets/heart.png')
+                }
+                style={styles.more}
+              />
+            </Pressable>
             <Text style={styles.like}>{item.likes}</Text>
             <Image
               source={require('../../assets/comment.png')}

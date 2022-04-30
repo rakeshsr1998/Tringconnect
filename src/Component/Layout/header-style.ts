@@ -31,4 +31,14 @@ export const style = StyleSheet.create({
     height: 24,
     marginLeft: 10,
   },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 10/2,
+    backgroundColor: '#FF0000',
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    zIndex: 9
+  },
 });
