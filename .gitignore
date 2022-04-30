@@ -56,6 +56,50 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
+# CocoaPods
+/ios/Pods/
+#/ios/Podfile.lock
+#--commit above files to build on Jenkins
+
+# Podfile versions
+ios/Podfile.lock
+#--commit above files to build on Jenkins
+
+*.ipa
+*.zip
+
+
+# fastlane specific
+**/fastlane/report.xml
+
+# deliver temporary files
+**/fastlane/Preview.html
+
+# snapshot generated screenshots
+**/fastlane/screenshots
+
+# scan temporary files
+**/fastlane/test_output
+
+# react-native-config codegen
+ios/tmp.xcconfig
+
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+# Android Release folder
+android/app/release/
+
+# test scanner
+.scannerwork/
+
+# test reports
+reports/
+
+# Readme
+*.md
+
+# yarn
+*.lock
+*.log
