@@ -54,7 +54,7 @@
       "src/**",
       "!src/assets/**",
       "!android",
-      "!src/**/__tests__/**"
+      "!.*__snapshots__/.*"
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
