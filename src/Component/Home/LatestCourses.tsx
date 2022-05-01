@@ -12,7 +12,7 @@ import {styles} from './latest-courses';
 const courses = [
   {
     image:
-      'https://digitalcloud.training/wp-content/uploads/2022/01/Amazon-DynamoDB.jpg',
+      'https://plantd-gallery.s3.amazonaws.com/videos/image%403x.png',
     name: 'Amazon Dynamo DB',
     bookMark: false,
     id:9

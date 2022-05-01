@@ -11,6 +11,7 @@ function useForceUpdate() {
 export const Status = ({status}: any) => {
   const forceUpdate = useForceUpdate();
   const [isModalVisible, setModalVisible] = useState(false);
+  const [createPosClick, setClick] = useState(false);
   const [imageSrc, setImageSrc] = useState('');
 
   const onClick = (index: any) => {
@@ -29,18 +30,28 @@ export const Status = ({status}: any) => {
     if (item.addImage) {
       return (
         <Pressable
+          onPress={() => setClick(true)}
           style={{
             justifyContent: 'center',
           }}>
           <Image
             style={styles.plusIcon}
-            source={require('../../assets/plus.png')}
+            source={
+              createPosClick
+                ? require('../../assets/create-post-active.png')
+                : require('../../assets/plus.png')
+            }
           />
         </Pressable>
       );
     }
     return (
-      <Pressable onPress={() => onClick(index)} testID={testId}>
+      <Pressable
+        onPress={() => {
+          setClick(false);
+          onClick(index);
+        }}
+        testID={testId}>
         <View style={styles.card}>
           <View
             style={[
@@ -60,7 +71,7 @@ export const Status = ({status}: any) => {
       <View style={styles.container}>
         <FlatList
           ItemSeparatorComponent={() => <View style={{width: 1}} />}
-          keyExtractor={(statusPost) => statusPost.id.toString()}
+          keyExtractor={statusPost => statusPost.id.toString()}
           horizontal={true}
           data={status}
           renderItem={render}
