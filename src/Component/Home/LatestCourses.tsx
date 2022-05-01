@@ -15,18 +15,21 @@ const courses = [
       'https://digitalcloud.training/wp-content/uploads/2022/01/Amazon-DynamoDB.jpg',
     name: 'Amazon Dynamo DB',
     bookMark: false,
+    id:9
   },
   {
     image:
       'https://img.freepik.com/free-vector/hand-drawn-portfolio-template_52683-79647.jpg?w=2000',
     name: 'Portfolio Management',
     bookMark: false,
+    id:8
   },
   {
     image:
       'https://www.simplilearn.com/ice9/free_resources_article_thumb/Project-Scope-Management-Cover.jpg',
     name: 'Tringapps Management',
     bookMark: false,
+    id:7
   },
 ];
 
@@ -74,7 +77,7 @@ export const LatestCourses = () => {
   return (
     <FlatList
       ItemSeparatorComponent={() => <View style={styles.flatList} />}
-      keyExtractor={(index) => index.toString()}
+      keyExtractor={(latestPosts) => latestPosts.id.toString()}
       horizontal={true}
       data={courses}
       renderItem={render}

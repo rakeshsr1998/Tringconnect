@@ -1,41 +1,50 @@
-import React from 'react';
-import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './activity-style';
-import { Comments } from './Comments';
-import { activity } from './data';
-import { LatestCourses } from './LatestCourses';
-import { RenderImageOrVideo } from './RenderImageVideo';
+import React, {useEffect, useState} from 'react';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
+import {styles} from './activity-style';
+import {Comments} from './Comments';
+import {activity} from './data';
+import {LatestCourses} from './LatestCourses';
+import {RenderImageOrVideo} from './RenderImageVideo';
 
 export const Activity = () => {
+  const [activityPosts, setActivity] = useState([]);
+  useEffect(() => {
+    fetch('http://th-alb-1338985061.ap-south-1.elb.amazonaws.com/api/v1/feeds')
+      .then(res => res.json())
+      .then(allPosts => {
+        const _data = [...allPosts, activity[2], activity[3]];
+        setActivity(_data);
+      });
+  }, []);
 
-  const renderAds = (item: any) => {
+  const renderAds = (item: any, index) => {
     if (item.isAd) {
       return (
         <View style={styles.adContainer}>
           <View style={styles.center}>
-            <Image source={{ uri: item.images[0] }} style={styles.banner} />
+            {item.images && (
+              <Image source={{uri: item.images[0]}} style={styles.banner} />
+            )}
           </View>
           <View style={styles.adTextContainer}>
             <View>
-              <Text style={{ ...styles.title, marginTop: 13 }}>
+              <Text style={{...styles.title, marginTop: 13}}>
                 Introducing Amazon EMR
               </Text>
               <Text style={styles.title}>serverless</Text>
-              <Text style={styles.minorText}>
-                aws.amazon.com | 2 mins read
-              </Text>
+              <Text style={styles.minorText}>aws.amazon.com | 2 mins read</Text>
             </View>
             <TouchableOpacity style={styles.knowMoreBtn}>
               <Text style={styles.knowMoreText}>Know More</Text>
             </TouchableOpacity>
           </View>
         </View>
-      )
+      );
     }
-    return <RenderImageOrVideo data={item} />
-  }
+    return <RenderImageOrVideo data={item} selectedIndex={index} />;
+  };
 
-  const render = ({ item, index }: any) => {
+  const render = ({item, index}: any) => {
     const logo = item.logo ? item.logo : `https://i.pravatar.cc/34${index}`;
     return (
       <>
@@ -43,7 +52,7 @@ export const Activity = () => {
           <View style={styles.row}>
             <View style={styles.flexRow}>
               {!item.latestCourse && (
-                <Image source={{ uri: logo }} style={styles.profileImage} />
+                <Image source={{uri: logo}} style={styles.profileImage} />
               )}
               <View style={styles.nameContainer}>
                 <Text style={styles.name}>{item.name}</Text>
@@ -75,20 +84,18 @@ export const Activity = () => {
             <LatestCourses />
           </View>
         ) : (
-          <>
-            {renderAds(item)}
-          </>
+          <>{renderAds(item, index)}</>
         )}
-        <Comments data={item} i={index} />
+        <Comments data={item} i={index} array={activityPosts} />
       </>
     );
   };
   return (
     <FlatList
       ItemSeparatorComponent={() => <View style={styles.separator} />}
-      keyExtractor={(index) => index.toString()}
+      keyExtractor={itemPost => ((itemPost || {}).id || {}).toString()}
       horizontal={false}
-      data={activity}
+      data={activityPosts}
       renderItem={render}
     />
   );

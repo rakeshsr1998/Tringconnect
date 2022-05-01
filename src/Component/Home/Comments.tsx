@@ -1,15 +1,14 @@
-import { Image, View, TextInput, Pressable, Text, FlatList } from 'react-native';
-import React, { useState } from 'react';
-import { styles } from './comment-style';
-import { styles as style } from './activity-style';
-import { activity } from './data';
+import {Image, View, TextInput, Pressable, Text, FlatList} from 'react-native';
+import React, {useState} from 'react';
+import {styles} from './comment-style';
+import {styles as style} from './activity-style';
 
 function useForceUpdate() {
   const [value, setValue] = useState(false); // integer state
   return () => setValue(!value); // update the state to force render
 }
 
-export const Comments = ({ data, i }: any) => {
+export const Comments = ({data, i, array}: any) => {
   const [text, setText] = useState('');
   const [showDiv, setDiv] = useState(false);
   const forceUpdate = useForceUpdate();
@@ -23,9 +22,9 @@ export const Comments = ({ data, i }: any) => {
       setTimeout(() => {
         setText('');
         setDiv(false);
-        activity.forEach((_item: any, ind: any) => {
+        array.forEach((_item: any, ind: any) => {
           if (ind === i) {
-            _item.comments = _item.comments + 1;
+            _item.comments = (_item.comments || 0) + 1;
           }
         });
         forceUpdate();
@@ -41,7 +40,7 @@ export const Comments = ({ data, i }: any) => {
           <Pressable
             testID="like"
             onPress={() => {
-              activity.forEach((_item: any, ind: any) => {
+              array.forEach((_item: any, ind: any) => {
                 if (ind === i) {
                   _item.like = !_item.like;
                 }
@@ -57,14 +56,16 @@ export const Comments = ({ data, i }: any) => {
               style={style.more}
             />
           </Pressable>
-          <Text style={style.like}>{data.likes + (data.like ? +1 : 0)}</Text>
+          <Text style={style.like}>
+            {(data.likes || 0) + (data.like || 0 ? +1 : 0)}
+          </Text>
           <Pressable onPress={() => setDiv(true)} testID="showDiv">
             <Image
               source={require('../../assets/comment.png')}
               style={style.commentPng}
             />
           </Pressable>
-          <Text style={style.comment}>{data.comments}</Text>
+          <Text style={style.comment}>{data.comments || 0}</Text>
         </View>
       </View>
       <View style={style.line} />
@@ -96,11 +97,11 @@ export const Comments = ({ data, i }: any) => {
           </Text>
         </View>
         <FlatList
-          ItemSeparatorComponent={() => <View style={{ height: 6 }} />}
-          keyExtractor={(id) => id.toString()}
+          ItemSeparatorComponent={() => <View style={{height: 6}} />}
+          keyExtractor={id => id.toString()}
           horizontal={false}
           data={comments}
-          renderItem={({ item, index }) => {
+          renderItem={({item, index}) => {
             return (
               <View
                 style={{
@@ -136,7 +137,11 @@ export const Comments = ({ data, i }: any) => {
                 placeholder="Add a comment..."
                 testID="test"
               />
-              <Pressable style={styles.arrowContainer} onPress={onPush}>
+              <Pressable
+                style={styles.arrowContainer}
+                onTouchStart={() => {
+                  onPush();
+                }}>
                 <Image
                   style={styles.icon}
                   source={require('../../assets/text-arrow.png')}

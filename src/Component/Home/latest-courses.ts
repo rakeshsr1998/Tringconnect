@@ -1,7 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  flatList: {padding: 10, backgroundColor: '#ffffff'},
+  flatList: {
+    width: 10,
+    backgroundColor: '#ffffff',
+  },
   regText: {
     color: '#ffffff',
     fontSize: 14,
@@ -43,10 +46,10 @@ export const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     justifyContent: 'center',
     alignItems: 'center',
-    position:'absolute',
+    position: 'absolute',
     zIndex: 9,
     right: 17,
-    top: 17
+    top: 17,
   },
   more: {
     width: 14,

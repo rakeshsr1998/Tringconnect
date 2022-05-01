@@ -37,7 +37,7 @@ export const activity = [
     comments: 12,
     name: 'tringapps',
     post: 'tringapps is now an AWS partner.',
-    id: 4,
+    id: 43434,
     role: 'Management',
     logo: 'https://media-exp1.licdn.com/dms/image/C560BAQEuX2znXgYC3g/company-logo_200_200/0/1645424234515?e=2147483647&v=beta&t=kPBX8QPRzjhBoJKzKXisgKyNedK811qlGk5mpGGdgA0',
   },
@@ -46,40 +46,45 @@ export const activity = [
     likes: 240,
     comments: 12,
     name: 'Latest Courses',
-    id: 3,
+    id: 38238,
   },
 ];
 
 export const status = [
-  {addImage: true},
+  {addImage: true, id: 23},
   {
     image:
       'https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg',
     name: 'HR Team',
     isView: false,
+    id: 24,
   },
   {
     image:
       'https://1.bp.blogspot.com/-arGwhEe2rG0/YTuyVzbS2NI/AAAAAAAAuUU/tKgGGBXs4Ig1kDG63eB8R_CKppQ8HY71QCLcBGAsYHQ/s920/Best-Profile-Pic-For-Boys%2B%25281%2529.png',
     name: 'Creative Bees',
     isView: false,
+    id: 25,
   },
   {
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFacn0pb12vsSRTPKRUDnxFrP8sj7st13r8A&usqp=CAU3',
     name: 'Texh Mads',
     isView: false,
+    id: 28,
   },
   {
     image:
       'https://media.istockphoto.com/photos/portrait-of-african-man-picture-id937265846?k=20&m=937265846&s=612x612&w=0&h=_tXglElGq2P166WjtAB71rcKmeU5SrF6x_x2Yd0GStM=',
     name: 'Cloud 9',
     isView: false,
+    id: 29,
   },
   {
     image:
       'https://thumbs.dreamstime.com/b/cute-black-kid-boy-child-face-profile-portrait-173019496.jpg',
     name: 'Cloud 91',
     isView: false,
+    id: 30,
   },
 ];
