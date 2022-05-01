@@ -4,26 +4,36 @@ import Modal from 'react-native-modal';
 import {styles} from './activity-style';
 import Carousel from 'react-native-snap-carousel';
 import {activity} from './data';
+import Video from 'react-native-video';
 
 const width = Dimensions.get('screen').width * 0.9;
 
 export const RenderImageOrVideo = ({selectedIndex}: any) => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [_index, setIndex] = useState(0);
   const [images, setImages] = useState([]);
   useEffect(() => {
     setImages(activity[selectedIndex]?.images);
-  });
+  }, []);
   const toggleModal = i => {
     setIndex(i);
     setModalVisible(!isModalVisible);
   };
 
-  const render = ({item}: any) => {
+  const render = ({item, index}: any) => {
+    if (index !== 3) {
+      return (
+        <Image
+          resizeMode="cover"
+          source={{uri: item}}
+          style={styles.modalCover}
+        />
+      );
+    }
     return (
-      <Image
-        resizeMode="cover"
-        source={{uri: item}}
+      <Video
+        resizeMode="contain"
+        source={require('../../assets/video.mp4')} // Can be a URL or a local file.
         style={styles.modalCover}
       />
     );
@@ -85,7 +95,7 @@ export const RenderImageOrVideo = ({selectedIndex}: any) => {
           </Pressable>
           {images.length && (
             <Carousel
-              firstItem={index}
+              firstItem={_index}
               pagingEnabled={true}
               data={images}
               renderItem={render}

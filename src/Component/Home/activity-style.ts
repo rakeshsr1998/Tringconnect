@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   role: {
     color: '#333333',
-    fontFamily: 'Poppins-light',
+    fontFamily: 'Poppins-Light',
     fontSize: 12,
   },
   more: {

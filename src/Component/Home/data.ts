@@ -25,7 +25,7 @@ export const activity = [
       'https://www.insegment.com/blog/wp-content/uploads/2016/04/The-Role-of-Marketing-1.jpg',
       'https://blog.hubspot.com/hubfs/marketing-techniques-Jun-30-2020-04-25-34-14-AM.jpg',
       'https://www.simplilearn.com/ice9/free_resources_article_thumb/history_and_evolution_of_digital_marketing.jpg',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGeZcvI5QjPJBtqa6kO8rRVkGDZng_NtrMA&usqp=CAU',
+      'https://plantd-gallery.s3.amazonaws.com/videos/video_1%403x.png',
     ],
   },
   {
