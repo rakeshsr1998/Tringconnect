@@ -1,14 +1,15 @@
-import {Image, View, TextInput, Pressable, Text, FlatList} from 'react-native';
-import React, {useState} from 'react';
-import {styles} from './comment-style';
-import {styles as style} from './activity-style';
+import { Image, View, TextInput, Pressable, Text, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { styles } from './comment-style';
+import { styles as style } from './activity-style';
+import moment from 'moment';
 
 function useForceUpdate() {
   const [value, setValue] = useState(false); // integer state
   return () => setValue(!value); // update the state to force render
 }
 
-export const Comments = ({data, i, array}: any) => {
+export const Comments = ({ data, i, array }: any) => {
   const [text, setText] = useState('');
   const [showDiv, setDiv] = useState(false);
   const forceUpdate = useForceUpdate();
@@ -35,7 +36,7 @@ export const Comments = ({data, i, array}: any) => {
   return (
     <>
       <View style={style.secondCon}>
-        <Text style={style.time}>3 hours ago</Text>
+        <Text style={style.time}>{moment(data?.date).fromNow()}</Text>
         <View style={style.rightIconCon}>
           <Pressable
             testID="like"
@@ -97,11 +98,11 @@ export const Comments = ({data, i, array}: any) => {
           </Text>
         </View>
         <FlatList
-          ItemSeparatorComponent={() => <View style={{height: 6}} />}
+          ItemSeparatorComponent={() => <View style={{ height: 6 }} />}
           keyExtractor={id => id.toString()}
           horizontal={false}
           data={comments}
-          renderItem={({item, index}) => {
+          renderItem={({ item, index }) => {
             return (
               <View
                 style={{

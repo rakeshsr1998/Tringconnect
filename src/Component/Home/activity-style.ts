@@ -58,8 +58,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'Poppins-Medium',
     marginLeft: 3,
     fontSize: 16,
-    lineHeight: 16,
-    marginTop: 13,
   },
   latestCon: {paddingLeft: 15},
   adContainer: {

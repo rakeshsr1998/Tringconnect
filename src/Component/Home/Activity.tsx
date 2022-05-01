@@ -1,24 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
-import {styles} from './activity-style';
-import {Comments} from './Comments';
-import {activity} from './data';
-import {LatestCourses} from './LatestCourses';
-import {RenderImageOrVideo} from './RenderImageVideo';
+import React, { useEffect, useState } from 'react';
+import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
+import { styles } from './activity-style';
+import { Comments } from './Comments';
+import { activity } from './data';
+import { LatestCourses } from './LatestCourses';
+import { RenderImageOrVideo } from './RenderImageVideo';
 
 const URL =
   'http://th-alb-1338985061.ap-south-1.elb.amazonaws.com/api/v1/feeds';
 
 export const Activity = () => {
   const [activityPosts, setActivity] = useState([]);
+
   useEffect(() => {
     fetch(URL)
       .then(res => res.json())
       .then(allPosts => {
+        allPosts.sort(function (a, b) {
+          return new Date(b.date) - new Date(a.date);
+        });
         const _data = [...allPosts, activity[2], activity[3]];
         setActivity(_data);
       });
   }, []);
+
 
   const renderAds = (item: any, index) => {
     if (item.isAd) {
@@ -26,12 +31,12 @@ export const Activity = () => {
         <View style={styles.adContainer}>
           <View style={styles.center}>
             {item.images && (
-              <Image source={{uri: item.images[0]}} style={styles.banner} />
+              <Image source={{ uri: item.images[0] }} style={styles.banner} />
             )}
           </View>
           <View style={styles.adTextContainer}>
             <View>
-              <Text style={{...styles.title, marginTop: 13}}>
+              <Text style={{ ...styles.title, marginTop: 13 }}>
                 Introducing Amazon EMR
               </Text>
               <Text style={styles.title}>serverless</Text>
@@ -47,7 +52,7 @@ export const Activity = () => {
     return <RenderImageOrVideo data={item} selectedIndex={index} />;
   };
 
-  const render = ({item, index}: any) => {
+  const render = ({ item, index }: any) => {
     const logo = item.logo ? item.logo : `https://i.pravatar.cc/34${index}`;
     return (
       <>
@@ -55,7 +60,7 @@ export const Activity = () => {
           <View style={styles.row}>
             <View style={styles.flexRow}>
               {!item.latestCourse && (
-                <Image source={{uri: logo}} style={styles.profileImage} />
+                <Image source={{ uri: logo }} style={styles.profileImage} />
               )}
               <View style={styles.nameContainer}>
                 <Text style={styles.name}>{item.name}</Text>
@@ -73,12 +78,14 @@ export const Activity = () => {
           </View>
           <Text style={styles.desc}>{item.post}</Text>
           {!item.latestCourse && (
-            <View style={styles.flexRow}>
-              <Text numberOfLines={1} style={styles.hashTags}>
+            <View style={{ ...styles.flexRow, justifyContent: 'space-between' }}>
+              <Text numberOfLines={1} style={{ ...styles.hashTags, width: 250 }}>
                 #Network #kitchenapp #foodies #productdesig #Sales{' '}
-                <Text style={styles.readMore}>Read More </Text>
               </Text>
-              <Text style={styles.arrow}>{'>'}</Text>
+              <Text numberOfLines={1} style={styles.hashTags}>
+                <Text style={styles.readMore}>Read More {'>'}
+                </Text>
+              </Text>
             </View>
           )}
         </View>

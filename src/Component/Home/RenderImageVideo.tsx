@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {Image, View, Pressable, Dimensions} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Image, View, Pressable, Dimensions } from 'react-native';
 import Modal from 'react-native-modal';
-import {styles} from './activity-style';
+import { styles } from './activity-style';
 import Carousel from 'react-native-snap-carousel';
-import {activity} from './data';
+import { activity } from './data';
 import Video from 'react-native-video';
 
 const width = Dimensions.get('screen').width * 0.9;
 
-export const RenderImageOrVideo = ({selectedIndex}: any) => {
+export const RenderImageOrVideo = ({ selectedIndex }: any) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [_index, setIndex] = useState(0);
   const [images, setImages] = useState([]);
@@ -20,18 +20,19 @@ export const RenderImageOrVideo = ({selectedIndex}: any) => {
     setModalVisible(!isModalVisible);
   };
 
-  const render = ({item, index}: any) => {
+  const render = ({ item, index }: any) => {
     if (index !== 3) {
       return (
         <Image
           resizeMode="cover"
-          source={{uri: item}}
+          source={{ uri: item }}
           style={styles.modalCover}
         />
       );
     }
     return (
       <Video
+        muted={true}
         resizeMode="contain"
         source={require('../../assets/video.mp4')} // Can be a URL or a local file.
         style={styles.modalCover}
@@ -44,7 +45,7 @@ export const RenderImageOrVideo = ({selectedIndex}: any) => {
       {!images && <></>}
       {images.length === 1 && (
         <Pressable onPress={() => toggleModal(0)} testID="image1">
-          <Image source={{uri: images[0]}} style={styles.postImage} />
+          <Image source={{ uri: images[0] }} style={styles.postImage} />
         </Pressable>
       )}
       {images.length > 1 && (
@@ -54,13 +55,13 @@ export const RenderImageOrVideo = ({selectedIndex}: any) => {
               style={styles.flexOne}
               onPress={() => toggleModal(0)}
               testID="image2">
-              <Image source={{uri: images[0]}} style={styles.multiImage} />
+              <Image source={{ uri: images[0] }} style={styles.multiImage} />
             </Pressable>
             <Pressable
               style={styles.flexTwo}
               onPress={() => toggleModal(1)}
               testID="image3">
-              <Image source={{uri: images[1]}} style={styles.multiImage} />
+              <Image source={{ uri: images[1] }} style={styles.multiImage} />
             </Pressable>
           </View>
           <View style={styles.flexRow}>
@@ -68,13 +69,13 @@ export const RenderImageOrVideo = ({selectedIndex}: any) => {
               style={styles.flexThree}
               onPress={() => toggleModal(2)}
               testID="image4">
-              <Image source={{uri: images[2]}} style={styles.multiImage} />
+              <Image source={{ uri: images[2] }} style={styles.multiImage} />
             </Pressable>
             <Pressable
               style={styles.flexFour}
               onPress={() => toggleModal(3)}
               testID="image5">
-              <Image source={{uri: images[3]}} style={styles.multiImage} />
+              <Image source={{ uri: images[3] }} style={styles.multiImage} />
             </Pressable>
           </View>
         </>

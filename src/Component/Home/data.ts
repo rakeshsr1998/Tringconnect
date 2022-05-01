@@ -9,7 +9,10 @@ export const activity = [
     likes: 240,
     comments: 12,
     images: [
-      'https://images.unsplash.com/photo-1564758596151-c17d1590f483?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBmb29kfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
+      'https://www.insegment.com/blog/wp-content/uploads/2016/04/The-Role-of-Marketing-1.jpg',
+      'https://blog.hubspot.com/hubfs/marketing-techniques-Jun-30-2020-04-25-34-14-AM.jpg',
+      'https://www.simplilearn.com/ice9/free_resources_article_thumb/history_and_evolution_of_digital_marketing.jpg',
+      'https://plantd-gallery.s3.amazonaws.com/videos/video_1%403x.png',
     ],
   },
   {
@@ -22,10 +25,7 @@ export const activity = [
     likes: 210,
     comments: 50,
     images: [
-      'https://www.insegment.com/blog/wp-content/uploads/2016/04/The-Role-of-Marketing-1.jpg',
-      'https://blog.hubspot.com/hubfs/marketing-techniques-Jun-30-2020-04-25-34-14-AM.jpg',
-      'https://www.simplilearn.com/ice9/free_resources_article_thumb/history_and_evolution_of_digital_marketing.jpg',
-      'https://plantd-gallery.s3.amazonaws.com/videos/video_1%403x.png',
+      'https://images.unsplash.com/photo-1564758596151-c17d1590f483?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBmb29kfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
     ],
   },
   {
@@ -40,6 +40,7 @@ export const activity = [
     id: 43434,
     role: 'Management',
     logo: 'https://media-exp1.licdn.com/dms/image/C560BAQEuX2znXgYC3g/company-logo_200_200/0/1645424234515?e=2147483647&v=beta&t=kPBX8QPRzjhBoJKzKXisgKyNedK811qlGk5mpGGdgA0',
+    "date": "2016-04-29",
   },
   {
     latestCourse: true,
@@ -47,6 +48,7 @@ export const activity = [
     comments: 12,
     name: 'Latest Courses',
     id: 38238,
+    "date": "2016-04-29",
   },
 ];
 
