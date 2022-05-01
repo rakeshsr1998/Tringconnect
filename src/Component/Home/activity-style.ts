@@ -1,7 +1,10 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  separator: {height: 10, backgroundColor: '#f9f9f9'},
+  separator: {
+    height: 10,
+    backgroundColor: Platform.OS == 'ios' ? '#f9f9f9' : 'rgba(109,114,120,0.05)',
+  },
   container: {
     padding: 15,
     paddingTop: 15,
@@ -102,7 +105,7 @@ export const styles = StyleSheet.create({
     borderColor: '#5BBC2E',
     borderWidth: 1,
     width: 119,
-    marginRight: 10
+    marginRight: 10,
   },
   knowMoreText: {
     color: '#333333',
