@@ -1,22 +1,9 @@
 import React from 'react';
-import {FlatList, Platform, StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {Activity} from './Activity';
 import {Status} from './Status';
 import {status} from './data';
-
-export default function VirtualizedView(props: any) {
-  return (
-    <FlatList
-      data={[]}
-      ListEmptyComponent={null}
-      keyExtractor={() => 'dummies'}
-      renderItem={null}
-      ListHeaderComponent={() => (
-        <React.Fragment>{props.children}</React.Fragment>
-      )}
-    />
-  );
-}
+import VirtualizedView from './Virtualizedview';
 
 export const Home = () => {
   return (

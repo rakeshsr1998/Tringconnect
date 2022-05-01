@@ -3,12 +3,13 @@ import React from 'react';
 import {Status} from '../Status';
 
 const mock1 = [
-  {addImage: true},
+  {addImage: true, id:1},
   {
     image:
       'https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg',
     name: 'HR Team',
     isView: false,
+    id:2
   },
 ];
 

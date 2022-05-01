@@ -7,12 +7,12 @@ import {activity} from './data';
 
 const width = Dimensions.get('screen').width * 0.9;
 
-export const RenderImageOrVideo = ({data, selectedIndex}: any) => {
+export const RenderImageOrVideo = ({selectedIndex}: any) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [index, setIndex] = useState(0);
   const [images, setImages] = useState([]);
   useEffect(() => {
-    setImages(activity[selectedIndex].images);
+    setImages(activity[selectedIndex]?.images);
   });
   const toggleModal = i => {
     setIndex(i);
