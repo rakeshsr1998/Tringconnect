@@ -25,13 +25,13 @@ export const activity = [
     likes: 210,
     comments: 50,
     images: [
-      'https://images.unsplash.com/photo-1564758596151-c17d1590f483?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBmb29kfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
+      'https://plantd-gallery.s3.amazonaws.com/videos/post_image%403x.png',
     ],
   },
   {
     isAd: true,
     images: [
-      'https://pbs.twimg.com/media/FLFNFuiakAQZ9fV?format=jpg&name=4096x4096',
+      'https://plantd-gallery.s3.amazonaws.com/videos/banner%403x.png',
     ],
     likes: 240,
     comments: 12,
