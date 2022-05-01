@@ -6,10 +6,13 @@ import {activity} from './data';
 import {LatestCourses} from './LatestCourses';
 import {RenderImageOrVideo} from './RenderImageVideo';
 
+const URL =
+  'http://th-alb-1338985061.ap-south-1.elb.amazonaws.com/api/v1/feeds';
+
 export const Activity = () => {
   const [activityPosts, setActivity] = useState([]);
   useEffect(() => {
-    fetch('http://th-alb-1338985061.ap-south-1.elb.amazonaws.com/api/v1/feeds')
+    fetch(URL)
       .then(res => res.json())
       .then(allPosts => {
         const _data = [...allPosts, activity[2], activity[3]];
